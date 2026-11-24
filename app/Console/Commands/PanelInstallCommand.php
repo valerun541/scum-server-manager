@@ -3,89 +3,88 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 
 class PanelInstallCommand extends Command
 {
-    protected  = 'panel:install {--force : Перезаписать существующую базу данных}';
+    protected $signature = 'panel:install {--force : Перезаписать существующую базу данных}';
 
-    protected  = 'Интерактивный мастер первоначальной установки и настройки SCUM Server Manager';
+    protected $description = 'Интерактивный мастер первоначальной установки и настройки SCUM Server Manager';
 
     public function handle(): int
     {
-        ->newLine();
-        ->line('<fg=cyan;options=bold>=============================================================</>');
-        ->line('<fg=cyan;options=bold>   SCUM SERVER MANAGER (SSM) — МАСТЕР УСТАНОВКИ             </>');
-        ->line('<fg=cyan;options=bold>=============================================================</>');
-        ->newLine();
+        $this->newLine();
+        $this->line('<fg=cyan;options=bold>=============================================================</>');
+        $this->line('<fg=cyan;options=bold>   SCUM SERVER MANAGER (SSM) — МАСТЕР УСТАНОВКИ             </>');
+        $this->line('<fg=cyan;options=bold>=============================================================</>');
+        $this->newLine();
 
         // 1. Проверка и создание .env
-        ->info('1/5. Настройка файла конфигурации (.env)...');
-         = base_path('.env');
-         = base_path('.env.example');
+        $this->info('1/5. Настройка файла конфигурации (.env)...');
+        $envPath = base_path('.env');
+        $envExamplePath = base_path('.env.example');
 
-        if (!File::exists()) {
-            if (File::exists()) {
-                File::copy(, );
-                ->line('  <fg=green>✓</> Файл .env успешно создан из .env.example');
+        if (!File::exists($envPath)) {
+            if (File::exists($envExamplePath)) {
+                File::copy($envExamplePath, $envPath);
+                $this->line('  <fg=green>✓</> Файл .env успешно создан из .env.example');
             } else {
-                ->error('  ✗ Файл .env.example не найден!');
+                $this->error('  ✗ Файл .env.example не найден!');
                 return self::FAILURE;
             }
         } else {
-            ->line('  <fg=yellow>ℹ</> Файл .env уже существует, пропускаем.');
+            $this->line('  <fg=yellow>ℹ</> Файл .env уже существует, пропускаем.');
         }
 
         // 2. Генерация APP_KEY
-        ->info('2/5. Проверка ключа шифрования приложения (APP_KEY)...');
+        $this->info('2/5. Проверка ключа шифрования приложения (APP_KEY)...');
         if (empty(config('app.key'))) {
-            ->call('key:generate', ['--force' => true]);
-            ->line('  <fg=green>✓</> Ключ APP_KEY сгенерирован.');
+            $this->call('key:generate', ['--force' => true]);
+            $this->line('  <fg=green>✓</> Ключ APP_KEY сгенерирован.');
         } else {
-            ->line('  <fg=yellow>ℹ</> Ключ APP_KEY уже установлен.');
+            $this->line('  <fg=yellow>ℹ</> Ключ APP_KEY уже установлен.');
         }
 
         // 3. Создание файла SQLite базы данных
-        ->info('3/5. Подготовка локальной базы данных SQLite...');
-         = database_path();
-         = database_path('database.sqlite');
+        $this->info('3/5. Подготовка локальной базы данных SQLite...');
+        $dbDir = database_path();
+        $dbPath = database_path('database.sqlite');
 
-        if (!File::isDirectory()) {
-            File::makeDirectory(, 0755, true);
+        if (!File::isDirectory($dbDir)) {
+            File::makeDirectory($dbDir, 0755, true);
         }
 
-        if (!File::exists()) {
-            File::put(, '');
-            ->line('  <fg=green>✓</> Создан файл базы данных: ' . );
+        if (!File::exists($dbPath)) {
+            File::put($dbPath, '');
+            $this->line('  <fg=green>✓</> Создан файл базы данных: ' . $dbPath);
         } else {
-            ->line('  <fg=yellow>ℹ</> Файл базы данных уже существует.');
+            $this->line('  <fg=yellow>ℹ</> Файл базы данных уже существует.');
         }
 
         // 4. Выполнение миграций
-        ->info('4/5. Применение миграций схемы базы данных...');
-         = ['--force' => true];
-        if (->option('force')) {
-            ->call('migrate:fresh', );
+        $this->info('4/5. Применение миграций схемы базы данных...');
+        $migrateParams = ['--force' => true];
+        if ($this->option('force')) {
+            $this->call('migrate:fresh', $migrateParams);
         } else {
-            ->call('migrate', );
+            $this->call('migrate', $migrateParams);
         }
-        ->line('  <fg=green>✓</> Все таблицы успешно созданы.');
+        $this->line('  <fg=green>✓</> Все таблицы успешно созданы.');
 
         // 5. Создание учетной записи администратора
-        ->info('5/5. Создание учетной записи первого администратора...');
-        ->call('panel:user');
+        $this->info('5/5. Создание учетной записи первого администратора...');
+        $this->call('panel:user');
 
         // Итог
-        ->newLine();
-        ->line('<fg=green;options=bold>=============================================================</>');
-        ->line('<fg=green;options=bold>   ✓ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!                           </>');
-        ->line('<fg=green;options=bold>=============================================================</>');
-        ->newLine();
-        ->line('Для запуска панели в режиме разработки выполните:');
-        ->line('  <fg=bright-cyan>php artisan serve</>');
-        ->line('И откройте в браузере: <fg=bright-blue>http://127.0.0.1:8000</>');
-        ->newLine();
+        $this->newLine();
+        $this->line('<fg=green;options=bold>=============================================================</>');
+        $this->line('<fg=green;options=bold>   ✓ УСТАНОВКА УСПЕШНО ЗАВЕРШЕНА!                           </>');
+        $this->line('<fg=green;options=bold>=============================================================</>');
+        $this->newLine();
+        $this->line('Для запуска панели в режиме разработки выполните:');
+        $this->line('  <fg=bright-cyan>php artisan serve</>');
+        $this->line('И откройте в браузере: <fg=bright-blue>http://127.0.0.1:8000</>');
+        $this->newLine();
 
         return self::SUCCESS;
     }
