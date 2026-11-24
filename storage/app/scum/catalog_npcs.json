@@ -1,0 +1,163 @@
+[
+  {
+    "id": "BP_Bear2",
+    "name": "Медведь (Bear)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Bear2",
+    "icon": "catalog/npcs/bp_bear2.webp"
+  },
+  {
+    "id": "BP_Boar",
+    "name": "Дикий кабан (Boar)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Boar",
+    "icon": "catalog/npcs/bp_boar.webp"
+  },
+  {
+    "id": "BP_Chicken",
+    "name": "Курица (Chicken)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Chicken",
+    "icon": "catalog/npcs/bp_chicken.webp"
+  },
+  {
+    "id": "BP_Crow",
+    "name": "Ворона (Crow)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Crow",
+    "icon": "catalog/npcs/bp_crow.webp"
+  },
+  {
+    "id": "BP_Deer2",
+    "name": "Олень (Deer)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Deer2",
+    "icon": "catalog/npcs/bp_deer2.webp"
+  },
+  {
+    "id": "BP_Donkey2",
+    "name": "Осёл (Donkey)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Donkey2",
+    "icon": "catalog/npcs/bp_donkey2.webp"
+  },
+  {
+    "id": "BP_Goat2",
+    "name": "Коза (Goat)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Goat2",
+    "icon": "catalog/npcs/bp_goat2.webp"
+  },
+  {
+    "id": "BP_Horse2",
+    "name": "Лошадь (Horse)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Horse2",
+    "icon": "catalog/npcs/bp_horse2.webp"
+  },
+  {
+    "id": "BP_Rabbit2",
+    "name": "Кролик (Rabbit)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Rabbit2",
+    "icon": "catalog/npcs/bp_rabbit2.webp"
+  },
+  {
+    "id": "BP_Seagull",
+    "name": "Чайка (Seagull)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Seagull",
+    "icon": null
+  },
+  {
+    "id": "BP_Wolf3",
+    "name": "Волк (Wolf)",
+    "category": "animal",
+    "command": "#spawnanimal BP_Wolf3",
+    "icon": "catalog/npcs/bp_wolf3.webp"
+  },
+  {
+    "id": "WildDuck",
+    "name": "Дикая утка (Wild Duck)",
+    "category": "animal",
+    "command": "#spawnanimal WildDuck",
+    "icon": "catalog/npcs/wildduck.webp"
+  },
+  {
+    "id": "BP_Drifter_Lvl_1",
+    "name": "Бродяга (Drifter) Ур. 1",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Drifter_Lvl_1",
+    "icon": "catalog/npcs/bp_drifter_lvl_1.webp"
+  },
+  {
+    "id": "BP_Drifter_Lvl_2",
+    "name": "Бродяга (Drifter) Ур. 2",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Drifter_Lvl_2",
+    "icon": "catalog/npcs/bp_drifter_lvl_2.webp"
+  },
+  {
+    "id": "BP_Drifter_Lvl_3",
+    "name": "Бродяга (Drifter) Ур. 3",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Drifter_Lvl_3",
+    "icon": "catalog/npcs/bp_drifter_lvl_3.webp"
+  },
+  {
+    "id": "BP_Drifter_Lvl_4",
+    "name": "Бродяга (Drifter) Ур. 4",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Drifter_Lvl_4",
+    "icon": "catalog/npcs/bp_drifter_lvl_4.webp"
+  },
+  {
+    "id": "BP_Drifter_Lvl_5",
+    "name": "Бродяга (Drifter) Ур. 5 (Босс)",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Drifter_Lvl_5",
+    "icon": "catalog/npcs/bp_drifter_lvl_5.webp"
+  },
+  {
+    "id": "BP_Guard_Lvl_1",
+    "name": "Охранник (Guard) Ур. 1",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Guard_Lvl_1",
+    "icon": "catalog/npcs/bp_guard_lvl_1.webp"
+  },
+  {
+    "id": "BP_Guard_Lvl_2",
+    "name": "Охранник (Guard) Ур. 2",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Guard_Lvl_2",
+    "icon": "catalog/npcs/bp_guard_lvl_2.webp"
+  },
+  {
+    "id": "BP_Guard_Lvl_3",
+    "name": "Охранник (Guard) Ур. 3",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Guard_Lvl_3",
+    "icon": "catalog/npcs/bp_guard_lvl_3.webp"
+  },
+  {
+    "id": "BP_Guard_Lvl_4",
+    "name": "Охранник (Guard) Ур. 4",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Guard_Lvl_4",
+    "icon": "catalog/npcs/bp_guard_lvl_4.webp"
+  },
+  {
+    "id": "BP_Guard_Lvl_5",
+    "name": "Охранник (Guard) Ур. 5 (Элита)",
+    "category": "npc",
+    "command": "#SpawnArmedNPC BP_Guard_Lvl_5",
+    "icon": "catalog/npcs/bp_guard_lvl_5.webp"
+  },
+  {
+    "id": "Razor",
+    "name": "Рейзор (Босс Робот Razor)",
+    "category": "npc",
+    "command": "#SpawnArmedNPC Razor",
+    "icon": "catalog/npcs/razor.webp"
+  }
+]

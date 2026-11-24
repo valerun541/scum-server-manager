@@ -1,0 +1,77 @@
+# ==============================================================================
+# SCUM SERVER MANAGER — GITIGNORE CONFIGURATION
+# ==============================================================================
+
+# Dependencies
+/node_modules
+/vendor
+
+# Environment & Sensitive configs
+.env
+.env.*
+!.env.example
+auth.json
+
+# SQLite Databases & Locks
+/database/*.sqlite
+/database/*.sqlite-shm
+/database/*.sqlite-wal
+
+# Storage Framework & Caches
+/storage/app/*
+!/storage/app/.gitignore
+!/storage/app/scum/
+/storage/app/scum/SCUM.db*
+/storage/app/scum/*.tmp
+/storage/app/scum/*.lock
+/storage/app/scum/.*_pending
+/storage/app/scum/ftp_tmp/
+/storage/app/scum/config_backups/
+/storage/app/scum/scumdb_state.json
+
+# Keep core catalog JSON data
+!/storage/app/scum/catalog_items.json
+!/storage/app/scum/catalog_vehicles.json
+!/storage/app/scum/catalog_npcs.json
+!/storage/app/scum/catalog_markers.json
+!/storage/app/scum/iditem.txt
+!/storage/app/scum/images/
+
+# Storage Framework
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/*.key
+/storage/*.json
+/storage/pail
+
+# Public build assets (can be committed or built via npm run build)
+/public/hot
+/public/storage
+/public/fonts-manifest.dev.json
+
+# Test & IDE caches
+.phpunit.result.cache
+/.phpunit.cache
+/.idea
+/.vscode
+/.cursor/
+/.zed
+/.codex
+*.log
+Thumbs.db
+.DS_Store
+
+# Temporary & Backup files
+*.bak
+*.bak_*
+/backups_rcon_opt
+/packages_disabled
+/storage/daemons/

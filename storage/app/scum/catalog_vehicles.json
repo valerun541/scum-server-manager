@@ -1,0 +1,380 @@
+[
+  {
+    "id": "BP_Bicycle_Mountain_Bike_Blue",
+    "name": "Mountain Bike Blue (Горный синий)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Bicycle_Mountain_Bike_Blue",
+    "icon": "catalog/vehicles/bp_bicycle_mountain_bike_blue.webp"
+  },
+  {
+    "id": "BP_Cruiser_B",
+    "name": "Cruiser Violet (Мотоцикл Фиолетовый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Cruiser_B",
+    "icon": "catalog/vehicles/bp_cruiser_b.webp"
+  },
+  {
+    "id": "BP_Cruiser_C",
+    "name": "Cruiser Red (Мотоцикл Красный)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Cruiser_C",
+    "icon": "catalog/vehicles/bp_cruiser_c.webp"
+  },
+  {
+    "id": "BP_Cruiser_D",
+    "name": "Cruiser Turquoise (Мотоцикл Бирюзовый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Cruiser_D",
+    "icon": "catalog/vehicles/bp_cruiser_d.webp"
+  },
+  {
+    "id": "BP_Cruiser_E",
+    "name": "Cruiser Green (Мотоцикл Зеленый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Cruiser_E",
+    "icon": "catalog/vehicles/bp_cruiser_e.webp"
+  },
+  {
+    "id": "BP_Dirtbike_B",
+    "name": "Dirtbike Black (Эндуро Черный)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_B",
+    "icon": "catalog/vehicles/bp_dirtbike_b.webp"
+  },
+  {
+    "id": "BP_Dirtbike_C",
+    "name": "Dirtbike Red (Эндуро Красный)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_C",
+    "icon": "catalog/vehicles/bp_dirtbike_c.webp"
+  },
+  {
+    "id": "BP_Dirtbike_D",
+    "name": "Dirtbike Blue (Эндуро Синий)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_D",
+    "icon": "catalog/vehicles/bp_dirtbike_d.webp"
+  },
+  {
+    "id": "BP_Dirtbike_E",
+    "name": "Dirtbike Yellow (Эндуро Желтый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_E",
+    "icon": "catalog/vehicles/bp_dirtbike_e.webp"
+  },
+  {
+    "id": "BP_Dirtbike_F",
+    "name": "Dirtbike Green (Эндуро Зеленый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_F",
+    "icon": "catalog/vehicles/bp_dirtbike_f.webp"
+  },
+  {
+    "id": "BP_Dirtbike_Hellriders",
+    "name": "Dirtbike Hellriders (Эндуро)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Dirtbike_Hellriders",
+    "icon": "catalog/vehicles/bp_dirtbike_hellriders.webp"
+  },
+  {
+    "id": "BP_Kinglet_Scout",
+    "name": "Kinglet Scout (Самолет Скаут)",
+    "type": "plane",
+    "command": "#SpawnVehicle BP_Kinglet_Scout",
+    "icon": "catalog/vehicles/bp_kinglet_scout.webp"
+  },
+  {
+    "id": "BP_Pickup_01_A",
+    "name": "Pickup Truck (Пикап Оранжевый)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_A",
+    "icon": "catalog/vehicles/bp_pickup_01_a.webp"
+  },
+  {
+    "id": "BP_Pickup_01_B",
+    "name": "Pickup Truck (Пикап Черный)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_B",
+    "icon": "catalog/vehicles/bp_pickup_01_b.webp"
+  },
+  {
+    "id": "BP_Pickup_01_C",
+    "name": "Pickup Truck (Пикап Синий)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_C",
+    "icon": "catalog/vehicles/bp_pickup_01_c.webp"
+  },
+  {
+    "id": "BP_Pickup_01_D",
+    "name": "Pickup Truck (Пикап Красный)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_D",
+    "icon": "catalog/vehicles/bp_pickup_01_d.webp"
+  },
+  {
+    "id": "BP_Pickup_01_E",
+    "name": "Pickup Truck (Пикап Белый)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_E",
+    "icon": "catalog/vehicles/bp_pickup_01_e.webp"
+  },
+  {
+    "id": "BP_Pickup_01_F",
+    "name": "Pickup Truck (Пикап Камуфляж)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_F",
+    "icon": "catalog/vehicles/bp_pickup_01_f.webp"
+  },
+  {
+    "id": "BP_Pickup_01_G",
+    "name": "Pickup Truck (Пикап Красно-белый)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_G",
+    "icon": "catalog/vehicles/bp_pickup_01_g.webp"
+  },
+  {
+    "id": "BP_Pickup_01_HellRiders",
+    "name": "Pickup HellRiders (Боевой пикап)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_Pickup_01_HellRiders",
+    "icon": "catalog/vehicles/bp_pickup_01_hellriders.webp"
+  },
+  {
+    "id": "BP_Quad_01_B",
+    "name": "Quad Blue (Квадроцикл Синий)",
+    "type": "quad",
+    "command": "#SpawnVehicle BP_Quad_01_B",
+    "icon": "catalog/vehicles/bp_quad_01_b.webp"
+  },
+  {
+    "id": "BP_Quad_01_C",
+    "name": "Quad Red (Квадроцикл Красный)",
+    "type": "quad",
+    "command": "#SpawnVehicle BP_Quad_01_C",
+    "icon": "catalog/vehicles/bp_quad_01_c.webp"
+  },
+  {
+    "id": "BP_Quad_01_D",
+    "name": "Quad Camo (Квадроцикл Камуфляж)",
+    "type": "quad",
+    "command": "#SpawnVehicle BP_Quad_01_D",
+    "icon": "catalog/vehicles/bp_quad_01_d.webp"
+  },
+  {
+    "id": "BP_Sportbike_01",
+    "name": "Sportbike (Спортбайк)",
+    "type": "bike",
+    "command": "#SpawnVehicle BP_Sportbike_01",
+    "icon": "catalog/vehicles/bp_sportbike_01.webp"
+  },
+  {
+    "id": "BP_SUV_01_A",
+    "name": "SUV (Внедорожник Синий)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_SUV_01_A",
+    "icon": "catalog/vehicles/bp_suv_01_a.webp"
+  },
+  {
+    "id": "BP_SUV_01_B",
+    "name": "SUV (Внедорожник Оранжевый)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_SUV_01_B",
+    "icon": "catalog/vehicles/bp_suv_01_b.webp"
+  },
+  {
+    "id": "BP_SUV_01_C",
+    "name": "SUV (Внедорожник Полиция)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_SUV_01_C",
+    "icon": "catalog/vehicles/bp_suv_01_c.webp"
+  },
+  {
+    "id": "BP_SUV_01_D",
+    "name": "SUV (Внедорожник Спец)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_SUV_01_D",
+    "icon": "catalog/vehicles/bp_suv_01_d.webp"
+  },
+  {
+    "id": "BP_SUV_01_E",
+    "name": "SUV (Внедорожник Черный)",
+    "type": "car",
+    "command": "#SpawnVehicle BP_SUV_01_E",
+    "icon": "catalog/vehicles/bp_suv_01_e.webp"
+  },
+  {
+    "id": "BP_WheelBarrow_Improvised",
+    "name": "Wheelbarrow Improvised (Тачка самодельная)",
+    "type": "other",
+    "command": "#SpawnVehicle BP_WheelBarrow_Improvised",
+    "icon": "catalog/vehicles/bp_wheelbarrow_improvised.webp"
+  },
+  {
+    "id": "BP_WheelBarrow_Metal",
+    "name": "Wheelbarrow Metal (Тачка металл)",
+    "type": "other",
+    "command": "#SpawnVehicle BP_WheelBarrow_Metal",
+    "icon": "catalog/vehicles/bp_wheelbarrow_metal.webp"
+  },
+  {
+    "id": "BPC_Barba",
+    "name": "Barba (Лодка Барба)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_Barba",
+    "icon": "catalog/vehicles/bpc_barba.webp"
+  },
+  {
+    "id": "BPC_Bicycle_CityBike_Red",
+    "name": "City Bike Red (Городской красный)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_Bicycle_CityBike_Red",
+    "icon": "catalog/vehicles/bpc_bicycle_citybike_red.webp"
+  },
+  {
+    "id": "BPC_Bicycle_Mountain_Bike_Green",
+    "name": "Mountain Bike Green (Горный зеленый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_Bicycle_Mountain_Bike_Green",
+    "icon": "catalog/vehicles/bpc_bicycle_mountain_bike_green.webp"
+  },
+  {
+    "id": "BPC_Bicycle_Mountain_Bike_White",
+    "name": "Mountain Bike White (Горный белый)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_Bicycle_Mountain_Bike_White",
+    "icon": "catalog/vehicles/bpc_bicycle_mountain_bike_white.webp"
+  },
+  {
+    "id": "BPC_BigRaft",
+    "name": "Big Raft (Большой плот)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_BigRaft",
+    "icon": "catalog/vehicles/bpc_bigraft.webp"
+  },
+  {
+    "id": "BPC_CityBike",
+    "name": "City Bike (Городской велосипед)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_CityBike",
+    "icon": "catalog/vehicles/bpc_citybike.webp"
+  },
+  {
+    "id": "BPC_Cruiser",
+    "name": "Cruiser (Мотоцикл Крейсер)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_Cruiser",
+    "icon": "catalog/vehicles/bpc_cruiser.webp"
+  },
+  {
+    "id": "BPC_Dinghy",
+    "name": "Dinghy (Надувная лодка)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_Dinghy",
+    "icon": "catalog/vehicles/bpc_dinghy.webp"
+  },
+  {
+    "id": "BPC_Dirtbike",
+    "name": "Dirtbike (Эндуро мотоцикл)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_Dirtbike",
+    "icon": "catalog/vehicles/bpc_dirtbike.webp"
+  },
+  {
+    "id": "BPC_Kinglet_Duster",
+    "name": "Kinglet Duster (Самолет Кукурузник)",
+    "type": "plane",
+    "command": "#SpawnVehicle BPC_Kinglet_Duster",
+    "icon": "catalog/vehicles/bpc_kinglet_duster.webp"
+  },
+  {
+    "id": "BPC_Kinglet_Mariner",
+    "name": "Kinglet Mariner (Гидросамолет)",
+    "type": "plane",
+    "command": "#SpawnVehicle BPC_Kinglet_Mariner",
+    "icon": "catalog/vehicles/bpc_kinglet_mariner.webp"
+  },
+  {
+    "id": "BPC_Laika",
+    "name": "Laika (Лайка)",
+    "type": "car",
+    "command": "#SpawnVehicle BPC_Laika",
+    "icon": "catalog/vehicles/bpc_laika.webp"
+  },
+  {
+    "id": "BPC_MotorBoat_01_B",
+    "name": "Motorboat (Моторная лодка B)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_MotorBoat_01_B",
+    "icon": "catalog/vehicles/bpc_motorboat_01_b.webp"
+  },
+  {
+    "id": "BPC_MotorBoat_01_C",
+    "name": "Motorboat (Моторная лодка C)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_MotorBoat_01_C",
+    "icon": "catalog/vehicles/bpc_motorboat_01_c.webp"
+  },
+  {
+    "id": "BPC_MotorBoat_01_D",
+    "name": "Motorboat (Моторная лодка D)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_MotorBoat_01_D",
+    "icon": "catalog/vehicles/bpc_motorboat_01_d.webp"
+  },
+  {
+    "id": "BPC_MountainBike",
+    "name": "Mountain Bike Red (Горный велосипед)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_MountainBike",
+    "icon": "catalog/vehicles/bpc_mountainbike.webp"
+  },
+  {
+    "id": "BPC_Rager",
+    "name": "Rager (Рейджер)",
+    "type": "car",
+    "command": "#SpawnVehicle BPC_Rager",
+    "icon": "catalog/vehicles/bpc_rager.webp"
+  },
+  {
+    "id": "BPC_RIS",
+    "name": "RIS (Полицейский/Военный автомобиль)",
+    "type": "car",
+    "command": "#SpawnVehicle BPC_RIS",
+    "icon": "catalog/vehicles/bpc_ris.webp"
+  },
+  {
+    "id": "BPC_SidecarBike",
+    "name": "Sidecar Bike (Мотоцикл с люлькой)",
+    "type": "bike",
+    "command": "#SpawnVehicle BPC_SidecarBike",
+    "icon": "catalog/vehicles/bpc_sidecarbike.webp"
+  },
+  {
+    "id": "BPC_SmallRaft",
+    "name": "Small Raft (Малый плот)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_SmallRaft",
+    "icon": "catalog/vehicles/bpc_smallraft.webp"
+  },
+  {
+    "id": "BPC_SUP",
+    "name": "SUP Board (Сапборд)",
+    "type": "boat",
+    "command": "#SpawnVehicle BPC_SUP",
+    "icon": "catalog/vehicles/bpc_sup.webp"
+  },
+  {
+    "id": "BPC_Tractor",
+    "name": "Tractor (Трактор)",
+    "type": "car",
+    "command": "#SpawnVehicle BPC_Tractor",
+    "icon": "catalog/vehicles/bpc_tractor.webp"
+  },
+  {
+    "id": "BPC_WolfsWagen",
+    "name": "WolfsWagen (Гольф)",
+    "type": "car",
+    "command": "#SpawnVehicle BPC_WolfsWagen",
+    "icon": "catalog/vehicles/bpc_wolfswagen.webp"
+  }
+]

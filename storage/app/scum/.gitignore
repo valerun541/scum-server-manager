@@ -1,0 +1,8 @@
+SCUM.db*
+*.tmp
+*.lock
+.*_pending
+ftp_tmp/
+config_backups/
+scumdb_state.json
+images/
