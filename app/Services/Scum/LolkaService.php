@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Lolka webhook уведомления — замена Discord (порт discordWebhook.ts).
- * API Lolka совместим с Discord-форматом: POST https://lolka.app/api/webhooks/{id}/{token}
+ * Lolka webhook уведомления.
+ * Формат запроса: POST https://lolka.app/api/webhooks/{id}/{token}
  * с полями content / embeds (title, description, color, timestamp...).
  */
 class LolkaService

@@ -365,7 +365,7 @@
                             </div>
                         </div>
 
-                        {{-- Содержимое: Lolka / Discord --}}
+                        {{-- Содержимое: Lolka --}}
                         <div x-show="step.type === 'lolka_webhook'" class="space-y-3">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div>
@@ -383,7 +383,7 @@
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-[11px] font-semibold text-[#8b949e] mb-1">Текст Discord сообщения</label>
+                                <label class="block text-[11px] font-semibold text-[#8b949e] mb-1">Текст Lolka сообщения</label>
                                 <textarea x-model="step.config.content" rows="2" class="input text-xs w-full font-mono" placeholder="@{{playerName}}, стартовый набор успешно выдан!" @input="syncToRawJson()"></textarea>
                             </div>
                         </div>
@@ -526,7 +526,7 @@
                         <button type="button" @click="addStep('lolka_webhook')" class="p-3 text-left rounded-xl bg-[#161b22] hover:bg-[#21262d] border border-[#30363d] hover:border-[#58a6ff]/50 transition-all flex items-start gap-2.5 group cursor-pointer">
                             <x-icon name="message-square" class="w-5 h-5 text-[#58a6ff] shrink-0" />
                             <div class="min-w-0">
-                                <div class="font-bold text-xs text-[#e6edf3] group-hover:text-[#58a6ff] truncate">Discord Бот</div>
+                                <div class="font-bold text-xs text-[#e6edf3] group-hover:text-[#58a6ff] truncate">Lolka Бот</div>
                                 <div class="text-[10px] text-[#8b949e] mt-0.5 truncate">Отправить в чат</div>
                             </div>
                         </button>
@@ -623,7 +623,7 @@
                             <div class="font-bold text-xs sm:text-sm text-[#e6edf3]">Стартовый набор (!starter)</div>
                         </div>
                         <p class="text-xs text-[#8b949e] leading-relaxed">
-                            Игрок пишет <code>!starter</code> в чат. Сервер спавнит оружие и рюкзак через RCON, отправляет поздравление в чат и Discord и ставит кулдаун на 1 час.
+                            Игрок пишет <code>!starter</code> в чат. Сервер спавнит оружие и рюкзак через RCON, отправляет поздравление в чат и Lolka и ставит кулдаун на 1 час.
                         </p>
                     </div>
                     <button type="button" @click="loadPreset('starter_kit')" class="btn btn-sm btn-primary w-full justify-center text-xs font-semibold cursor-pointer">
@@ -641,7 +641,7 @@
                             <div class="font-bold text-xs sm:text-sm text-[#e6edf3]">Приветствие новичка</div>
                         </div>
                         <p class="text-xs text-[#8b949e] leading-relaxed">
-                            При подключении игрока (<code>player_join</code>) отправляет личное приветствие в игре и публикует уведомление в Discord-канал логинов.
+                            При подключении игрока (<code>player_join</code>) отправляет личное приветствие в игре и публикует уведомление в Lolka-канал логинов.
                         </p>
                     </div>
                     <button type="button" @click="loadPreset('welcome_player')" class="btn btn-sm bg-[#161b22] hover:bg-[#21262d] text-[#e6edf3] border-[#30363d] w-full justify-center text-xs font-semibold cursor-pointer">

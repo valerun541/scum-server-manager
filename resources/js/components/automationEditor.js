@@ -98,11 +98,11 @@ export function automationEditor(initialTrigger = 'chat_command') {
                 desc: 'Выполнить команду на игровом сервере'
             },
             lolka_webhook: {
-                title: 'Lolka / Discord',
+                title: 'Lolka Бот',
                 icon: 'message-square',
                 badge: 'badge-blue',
                 color: '#58a6ff',
-                desc: 'Отправить сообщение в Discord через Lolka бота'
+                desc: 'Отправить уведомление в Lolka через Webhook'
             },
             wargm_process: {
                 title: 'Wargm Выдача',
@@ -364,7 +364,7 @@ export function automationEditor(initialTrigger = 'chat_command') {
                 if (schedInt) schedInt.checked = true;
 
                 this.steps = [
-                    { id: generateId(), type: 'rcon_command', config: { command: 'Announce "Внимание! Посетите наш Discord для информации о правилах и ивентах!"' } },
+                    { id: generateId(), type: 'rcon_command', config: { command: 'Announce "Внимание! Посетите наш Lolka для информации о правилах и ивентах!"' } },
                     { id: generateId(), type: 'log', config: { level: 'info', message: 'Авто-анонс отправлен в {{now.time}}' } }
                 ];
             } else if (presetKey === 'wargm_delivery') {
