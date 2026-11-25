@@ -1,6 +1,6 @@
 # SCUM Server Manager (SSM) v2.0
 
-> **Веб-панель управления игровыми серверами SCUM** на базе Laravel 12, Alpine.js, Tailwind CSS и прямого асинхронного RCON/FTP шлюза для Linux-серверов.
+> **Веб-панель управления игровыми серверами SCUM** на базе Laravel 13, Alpine.js, Tailwind CSS и прямого асинхронного RCON/FTP шлюза для Linux-серверов.
 
 ---
 
@@ -384,7 +384,7 @@ journalctl -u scum-rcon.service -f
 # Запуск 72 автоматических тестов
 php artisan test
 
-# Анализ кода с PHPStan (Level 6+)
+# Анализ кода с PHPStan (Level 5)
 vendor/bin/phpstan analyse --memory-limit=1G
 
 # Проверка стандартов кода Laravel Pint
