@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // Enterprise Health Check (Observability)
 Route::get('/health', [HealthController::class, 'check'])->name('api.health');
 
-Route::prefix('v1')->middleware([ApiTokenMiddleware::class])->group(function () {
+Route::prefix('v1')->middleware([ApiTokenMiddleware::class, 'throttle:panel'])->group(function () {
     // Статус и возможности API
     Route::get('/', [ApiController::class, 'status'])->name('api.v1.status');
     Route::get('/status', [ApiController::class, 'status'])->name('api.v1.status.alias');

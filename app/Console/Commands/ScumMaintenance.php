@@ -44,6 +44,7 @@ class ScumMaintenance extends Command
             DB::table('log_events')->where('created_at', '<', now()->subDays(14))->delete();
             DB::table('chat_events')->where('created_at', '<', now()->subDays(14))->delete();
         } catch (\Throwable $e) {
+            $this->error('events cleanup: '.$e->getMessage());
         }
 
         try {
