@@ -14,6 +14,4 @@ sudo supervisorctl status
 - **scum-watch** — FTP-мониторинг логов; ставит события/чат-команды в очередь, синхронизирует SCUM.db, подогревает кэш карты.
 - **scum-scheduler** — `schedule:work`: раз в минуту ставит `scum:dispatch-tick` (тик расписаний/плагинов) и раз в 15 минут `scum:maintenance` (чистка scum_jobs и кэша).
 
-Проверка локально (Windows) — см. `deploy/windows/start-demons.bat`.
-
 Supervisor автоматически перезапустит демон при падении (например, по таймауту или после `queue:restart`), поэтому `autorestart=true`.
