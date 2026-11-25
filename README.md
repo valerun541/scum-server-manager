@@ -126,7 +126,7 @@ php -v && composer -V && nginx -v && supervisord -v
 sudo mkdir -p /var/www/scum-panel
 sudo chown -R $USER:$USER /var/www/scum-panel
 
-git clone https://github.com/<ВАШ_АККАУНТ>/scum-server-manager.git /var/www/scum-panel
+git clone https://github.com/valerun541/scum-server-manager.git /var/www/scum-panel
 cd /var/www/scum-panel
 ```
 
@@ -377,6 +377,16 @@ php artisan test
 vendor/bin/phpstan analyse --memory-limit=1G
 vendor/bin/pint --test
 ```
+
+---
+
+## 💬 Поддержка и обратная связь
+
+Если у вас возникли вопросы по установке, настройке или вы обнаружили ошибку в работе панели — пожалуйста, создайте обращение в разделе Issues:
+
+👉 **[https://github.com/valerun541/scum-server-manager/issues](https://github.com/valerun541/scum-server-manager/issues)**
+
+*(При сообщении об ошибке желательно приложить фрагмент лога из `storage/logs/laravel.log` или `storage/logs/supervisor-*.log` и указать версию PHP / ОС).*
 
 ---
 
