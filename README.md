@@ -1,126 +1,100 @@
-# SCUM Server Manager (SSM) v2.0
+<div align="center">
 
-> **Современная веб-панель управления игровыми серверами SCUM** на базе **Laravel 13**, **PHP 8.4**, **Alpine.js** и **Tailwind CSS 4** с асинхронным RCON/FTP-шлюзом для Linux-серверов.
+# SCUM Server Manager (SSM)
+
+**Веб-панель управления игровыми серверами SCUM на базе Laravel 13, PHP 8.4, Alpine.js и Tailwind CSS 4**
+
+[![PHP](https://img.shields.io/badge/PHP-8.3%20%7C%208.4-777BB4?style=flat-square&logo=php&logoColor=white)](https://www.php.net/)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com/)
+[![SQLite](https://img.shields.io/badge/Database-SQLite%20WAL-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20(Ubuntu%20%7C%20Debian)-FCC624?style=flat-square&logo=linux&logoColor=black)](#системные-требования)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Issues](https://img.shields.io/github/issues/valerun541/scum-server-manager?style=flat-square)](https://github.com/valerun541/scum-server-manager/issues)
+
+</div>
 
 ---
 
-## 💡 Идея и обязательный модуль для игрового сервера
+## 📑 Содержание
+
+- [О проекте и обязательные требования](#-о-проекте-и-обязательные-требования)
+- [Возможности панели](#-возможности-панели)
+- [Системные требования](#-системные-требования)
+- [Пошаговая установка на Linux](#-пошаговая-установка-на-linux)
+- [Настройка фоновых демонов](#-настройка-фоновых-демонов)
+- [Подключение игрового сервера](#-подключение-игрового-сервера)
+- [Архитектура БД и резервное копирование](#-архитектура-бд-и-резервное-копирование)
+- [Обновление и диагностика](#-обновление-и-диагностика)
+- [Тестирование и качество кода](#-тестирование-и-качество-кода)
+- [Поддержка и обратная связь](#-поддержка-и-обратная-связь)
+- [Лицензия](#-лицензия)
+
+---
+
+## 💡 О проекте и обязательные требования
 
 * **Источник идеи:** проект вдохновлён и создан на основе идей из репозитория [AMURKA-PVE-SCUM/scum-server-manager](https://github.com/AMURKA-PVE-SCUM/scum-server-manager).
-* **Обязательное требование для игрового сервера SCUM:** для работы RCON-консоли, выдачи предметов, спавна техники, чат-команд и всех плагинов на стороне вашего игрового сервера SCUM **должен быть установлен модуль** 👉 [AMURKA-PVE-SCUM/scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon).
+* **Обязательный модуль на игровом сервере:** для работы RCON-консоли, выдачи предметов, спавна техники, чат-команд и всех плагинов на стороне вашего сервера SCUM **должен быть установлен модуль** [AMURKA-PVE-SCUM/scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon).
 
 ---
 
-## 🌟 Подробные возможности панели
+## 🌟 Возможности панели
 
-### 1. Мультисерверный шлюз и мониторинг
-- **Центральный шлюз серверов (`/servers`):** добавление, редактирование, удаление и быстрое переключение между несколькими игровыми серверами SCUM.
-- **Живая диагностика подключений:** проверка статуса RCON-сокета и FTP/SFTP-доступа прямо из карточки сервера.
-- **Мониторинг хоста и демонов:** отслеживание активности фоновых служб (`scum:rcon`, `scum:watch`, `schedule:work`) и ресурсов сервера.
-
-### 2. Управление игроками онлайн (`/players`)
-- **Список игроков в реальном времени:** никнейм, SteamID, пинг, статус и быстрые действия в один клик.
-- **Моментальное администрирование:** кик, бан/разбан, нокаут, мут текстового чата и голоса, выдача валюты (Cash / Gold) и очков славы (Fame), телепортация (по координатам, к игроку, к транспорту), `Unstuck`, личные уведомления и сообщения в чат.
-- **Досье Whois:** просмотр детальной информации об игроке без входа в игру.
-
-### 3. Интерактивная карта острова SCUM (`/map`)
-- **Тактическая карта в реальном времени:** отображение онлайн-игроков, созданного транспорта, баз (флагов) и пользовательских зон.
-- **Инспектор содержимого:** просмотр координат, владельцев техники и содержимого сундуков прямо с карты.
-- **Быстрый телепорт:** копирование координат и быстрый переход к досье игрока.
-
-### 4. Интерактивная RCON-консоль и Спавнер (`/rcon`)
-- **Web-терминал CLI:** выполнение любых RCON-команд через защищённую очередь демона `scum:rcon` с отображением истории и полных ответов сервера.
-- **238 официальных команд SCUM:** каталог быстрых команд, разбитый по 10 категориям (Сервер, Игроки, Транспорт, Базы, Экономика, Модерация, Существа/Роботы, Спавн, Сквады, Квесты), и встроенная шпаргалка параметров.
-- **Умный каталог спавна (`<x-catalog-picker>`):** более **2 400** предметов, техника, NPC/животные и POI-метки острова с WebP-иконками, фильтрацией по категориям и поиском по русскому сленгу («калаш», «дигл», «лайка» и т.д.).
-
-### 5. База данных `SCUM.db` и Телеметрия (`/scumdb`)
-- **Автоматическая синхронизация по FTP/SFTP:** панель сама скачивает `SCUM.db` с игрового сервера и поддерживает локальную копию в актуальном состоянии.
-- **Профили персонажей (`/scumdb/player/{steamId}`):** инвентарь, быстрые слоты, кошелёк/банк, атрибуты (Сила, Выносливость, Ловкость, Интеллект) и прокачка всех игровых навыков.
-- **Разделы телеметрии:** отряды (Squads), весь заспавненный транспорт с владельцами, флаги и элементы баз, банковские счета, таблица лидеров экономики.
-- **Универсальный редактор таблиц SQLite:** безопасный просмотр, поиск, редактирование, добавление и удаление строк любой таблицы `SCUM.db` с защитой от перезаписи локальных правок до выгрузки на сервер.
-
-### 6. Редактор конфигов сервера (`/config-files`)
-- **Прямое редактирование по FTP/SFTP:** работа с `ServerSettings.ini`, `EconomyOverride.json`, `RaidSettings.json` и другими файлами конфигурации прямо в браузере (поддержка UTF-8 и UTF-16LE).
-- **Локальные бэкапы конфигов:** создание резервных копий перед сохранением и откат к любой версии в один клик.
-
-### 7. Паки лута и Наборы (`/packs`)
-- **Конструктор наборов (Starter, VIP, Event и др.):** настройка состава предметов, транспорта, валюты, кулдаунов (таймеров повторного получения) и прав доступа.
-- **Выдача через панель и чат-команды:** мгновенная выдача игроку из панели или автоматическая выдача по триггеру в игровом чате.
-
-### 8. Визуальный конструктор автоматизации (`/automation`)
-- **Триггеры:** чат-команды (с алиасами и кулдауном), игровые события (`player_join` и др.) и расписания по времени (`schedule`).
-- **Цепочки действий:** RCON-команды, уведомления в **Lolka** через Webhook, выдача покупок WARGM, задержки, условия (`if/else`), переменные, HTTP-запросы (с SSRF-защитой) и запись в лог.
-- **Готовые шаблоны (1-Click) и Экспертный JSON-режим.**
-
-### 9. Интеграция с магазином WARGM (`/wargm`)
-- **Автовыдача доната:** привязка товаров WARGM к карточкам предметов, наборов, транспорта или валюты в панели.
-- **История доставок, тест API и экспорт/импорт карточек** в формате JSON.
-
-### 10. Встроенные игровые плагины (`/plugins/*`)
-- **Телепорт:** настраиваемые точки телепортации по чат-командам.
-- **VIP-система:** управление VIP-игроками и сроками действия привилегий.
-- **SaveHome:** сохранение и возврат в точку дома по команде в чате.
-- **Airdrop-система:** вызов груза по расписанию или вручную, калибровка точек сброса.
-- **Страхование транспорта:** оформление страховых полисов на технику игроков и обработка заявок на восстановление.
-- **Награды за онлайн:** почасовые награды, награды для топ-игроков и чёрный список.
-
-### 11. Живые логи и Безопасность
-- **Мониторинг всех логов (`/logs/*`):** игровой чат (с возможностью отправки сообщений с сервера), действия админов, входы/выходы, убийства, транспорт, сундуки, экономика, очки славы, нарушения, квесты, RCON-команды и аудит панели (включая SSE-стриминг в реальном времени).
-- **Безопасность:** двухфакторная аутентификация (2FA / TOTP с QR-кодом), белый список IP-адресов с поддержкой CIDR-подсетей, защита от подбора паролей, управление активными сессиями.
-- **Внешнее API (`/api/v1/*`):** REST-эндпоинты для интеграции с сайтами и ботами (авторизация по `X-API-Key` / `Bearer` токену, health-check `/api/health`).
+| Модуль | Описание |
+| :--- | :--- |
+| **Мультисерверный шлюз** (`/servers`) | Добавление, редактирование, удаление и быстрое переключение между серверами SCUM. Живая проверка RCON-сокета, FTP/SFTP-доступа и статуса фоновых демонов. |
+| **Игроки онлайн** (`/players`) | Мониторинг игроков в реальном времени, досье `Whois`, кик, бан/разбан, нокаут, мут чата и голоса, выдача валюты (`Cash`/`Gold`) и `Fame`, телепортация и `Unstuck`. |
+| **Интерактивная карта** (`/map`) | Отображение игроков, транспорта, баз (флагов) и кастомных зон в реальном времени, просмотр содержимого сундуков и копирование координат. |
+| **RCON-консоль и Спавнер** (`/rcon`) | Web-терминал с очередью выполнения, историей и 238 официальными командами SCUM в 10 категориях. Встроенный каталог (>2 400 предметов, транспорт, NPC, POI) с WebP-иконками и поиском по русскому сленгу. |
+| **База данных `SCUM.db`** (`/scumdb`) | Автосинхронизация по FTP/SFTP, профили игроков (инвентарь, быстрые слоты, кошелёк, атрибуты, навыки), отряды, транспорт, флаги, банки, экономика и универсальный редактор таблиц SQLite. |
+| **Конфиги сервера** (`/config-files`) | Редактирование `ServerSettings.ini`, `EconomyOverride.json`, `RaidSettings.json` и др. по FTP/SFTP (UTF-8 / UTF-16LE) с локальными бэкапами и откатом в 1 клик. |
+| **Паки лута** (`/packs`) | Конструктор наборов (Starter, VIP, Event) с кулдаунами, правами доступа и выдачей из панели или по команде в чате. |
+| **Автоматизация** (`/automation`) | Визуальный конструктор сценариев: чат-триггеры, события (`player_join`), расписания (`schedule`), RCON-действия, уведомления в **Lolka** (Webhook), WARGM, условия, переменные, HTTP-запросы (с SSRF-защитой) и JSON-режим. |
+| **Магазин WARGM** (`/wargm`) | Автоматическая выдача покупок в игре, привязка карточек к предметам/наборам/транспорту, история доставок, экспорт/импорт JSON. |
+| **Игровые плагины** (`/plugins/*`) | Телепорт, VIP-система, SaveHome, Airdrop (по расписанию и с калибровкой точек), Страхование транспорта, Награды за онлайн. |
+| **Логи и Безопасность** (`/logs/*`, `/account`) | Живые логи (чат, админ, входы, убийства, экономика, квесты, RCON, аудит, SSE-стриминг), 2FA (TOTP), IP Whitelist (CIDR), защита от перебора паролей и REST API (`/api/v1/*`). |
 
 ---
 
-## 📋 Системные требования (Linux)
+## 📋 Системные требования
 
 Панель рассчитана на развёртывание на **Linux-сервере** (VPS / VDS / Dedicated).
 
-| Компонент | Требование (актуально на 2026) | Примечание |
+| Компонент | Требование | Примечание |
 | :--- | :--- | :--- |
-| **Операционная система** | **Ubuntu 24.04 LTS** / **22.04 LTS** или **Debian 12** | 64-bit Linux |
-| **PHP** | **8.3** или **8.4** (`php-fpm` + `php-cli`) | В `composer.json` требуется PHP `^8.3` |
-| **Расширения PHP** | `pdo_sqlite`, `sqlite3`, `curl`, `mbstring`, `openssl`, `bcmath`, `fileinfo`, `zip`, `xml`, `ctype`, `tokenizer` | База панели работает на **SQLite 3** (MySQL/PostgreSQL не нужны) |
-| **Веб-сервер** | **Nginx** (1.24+) | Проксирование PHP-FPM и отдача статики |
+| **ОС** | **Ubuntu 24.04 LTS** / **22.04 LTS** или **Debian 12** | 64-bit Linux |
+| **PHP** | **8.3** или **8.4** (`php-fpm` + `php-cli`) | В `composer.json` задано `^8.3` |
+| **Расширения PHP** | `pdo_sqlite`, `sqlite3`, `curl`, `mbstring`, `openssl`, `bcmath`, `fileinfo`, `zip`, `xml`, `ctype`, `tokenizer` | База панели работает на **SQLite 3** (MySQL/PostgreSQL не требуются) |
+| **Веб-сервер** | **Nginx** `1.24+` | Проксирование PHP-FPM и отдача статики |
 | **Менеджер процессов** | **Supervisor** или **Systemd** | Для постоянной работы 3 фоновых демонов |
 | **Composer** | **2.7+** | Установка PHP-зависимостей |
-| **Node.js** *(опционально)* | **20 LTS / 22 LTS** | Нужен **только** если вы редактируете CSS/JS. Готовые собранные ассеты уже лежат в `public/build/` |
-| **Игровой сервер SCUM** | Установленный **[scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon)** + доступ по FTP/SFTP | Обязательно для работы команд и синхронизации `SCUM.db` |
-| **Ресурсы VPS** | От **1–2 vCPU**, **1–2 ГБ RAM**, **10 ГБ SSD** | Рекомендуется 2 ГБ RAM для комфортной работы демонов |
+| **Node.js** *(опционально)* | **20 LTS / 22 LTS** | Нужен только при изменении исходного CSS/JS. Готовые ассеты уже включены в `public/build/` |
+| **Сервер SCUM** | Установленный **[scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon)** + доступ по FTP/SFTP | Обязательно для команд и синхронизации `SCUM.db` |
+| **Ресурсы VPS** | От **1–2 vCPU**, **1–2 ГБ RAM**, **10 ГБ SSD** | Рекомендуется 2 ГБ RAM |
 
 ---
 
-## 🚀 Полная пошаговая установка на Linux (Ubuntu 24.04 / Debian 12)
+## 🚀 Пошаговая установка на Linux
 
-### Шаг 1. Подготовка системы и установка пакетов
-
-Подключитесь к серверу по SSH под `root` или пользователем с правами `sudo`:
+### 1. Подготовка системы и установка пакетов (Ubuntu 24.04 / 22.04)
 
 ```bash
-# 1.1 Обновляем систему
 sudo apt update && sudo apt upgrade -y
-
-# 1.2 Ставим базовые утилиты, Nginx, Supervisor и SQLite CLI
 sudo apt install -y software-properties-common curl git unzip ufw nginx supervisor sqlite3
 
-# 1.3 Добавляем свежий репозиторий PHP (для Ubuntu)
+# Репозиторий свежих версий PHP
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
 
-# 1.4 Устанавливаем PHP 8.4 (или 8.3) и все нужные расширения
+# PHP 8.4 (или замените 8.4 на 8.3) и необходимые модули
 sudo apt install -y php8.4-fpm php8.4-cli php8.4-sqlite3 php8.4-curl \
     php8.4-mbstring php8.4-bcmath php8.4-zip php8.4-xml php8.4-intl
 
-# 1.5 Устанавливаем Composer
+# Установка Composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-
-# Проверка версий
-php -v && composer -V && nginx -v && supervisord -v
 ```
-*(На Debian 12 вместо `add-apt-repository ppa:ondrej/php` подключите репозиторий `packages.sury.org/php` или используйте системный PHP `8.2+`, если обновили ограничение, но рекомендуется PHP 8.3/8.4).*
 
----
-
-### Шаг 2. Клонирование проекта
+### 2. Клонирование и установка зависимостей
 
 ```bash
 sudo mkdir -p /var/www/scum-panel
@@ -128,50 +102,40 @@ sudo chown -R $USER:$USER /var/www/scum-panel
 
 git clone https://github.com/valerun541/scum-server-manager.git /var/www/scum-panel
 cd /var/www/scum-panel
-```
 
----
-
-### Шаг 3. Установка PHP-зависимостей
-
-```bash
 composer install --no-dev --optimize-autoloader
 ```
-*(Все стили и скрипты уже скомпилированы в `public/build/`, поэтому `npm install` на боевом сервере не требуется).*
 
----
+### 3. Автоматическая инициализация панели
 
-### Шаг 4. Автоматическая инициализация (База данных и Администратор)
-
-Запустите встроенный мастер установки Laravel:
+Запустите встроенный мастер установки:
 
 ```bash
 php artisan panel:install
 ```
 
-**Что сделает мастер автоматически:**
-1. Скопирует `.env.example` в `.env` (если `.env` отсутствует).
-2. Сгенерирует уникальный ключ шифрования `APP_KEY`.
-3. Создаст файл локальной базы данных `database/database.sqlite`.
-4. Развернёт все таблицы миграциями (`php artisan migrate --force`).
-5. Интерактивно запросит **логин** и **пароль** первого администратора панели.
+Мастер автоматически:
+1. Создаст `.env` из `.env.example`.
+2. Сгенерирует ключ шифрования `APP_KEY`.
+3. Создаст файл базы данных `database/database.sqlite`.
+4. Применит все миграции таблиц (`php artisan migrate --force`).
+5. Запросит логин и пароль первого администратора.
 
-> После установки откройте `.env` (`nano .env`) и для продакшена проверьте основные параметры:
-> ```ini
-> APP_ENV=production
-> APP_DEBUG=false
-> APP_URL=https://panel.yourdomain.com
-> ```
-> Затем выполните кэширование конфигурации:
-> ```bash
-> php artisan optimize
-> ```
+Затем настройте параметры окружения в `.env` для продакшена:
 
----
+```ini
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://panel.yourdomain.com
+```
 
-### Шаг 5. Настройка прав доступа на директории
+И закэшируйте конфигурацию:
 
-Пользователь веб-сервера `www-data` (под ним работают Nginx, PHP-FPM и все демоны) должен владеть папками записи:
+```bash
+php artisan optimize
+```
+
+### 4. Права доступа
 
 ```bash
 sudo chown -R www-data:www-data /var/www/scum-panel
@@ -180,17 +144,9 @@ sudo chmod -R 775 /var/www/scum-panel/storage \
                   /var/www/scum-panel/bootstrap/cache
 ```
 
----
+### 5. Настройка Nginx и HTTPS
 
-### Шаг 6. Настройка Nginx и SSL (HTTPS)
-
-Создайте конфигурацию виртуального хоста:
-
-```bash
-sudo nano /etc/nginx/sites-available/scum-panel.conf
-```
-
-Вставьте конфигурацию (замените `panel.yourdomain.com` на ваш домен или IP-адрес сервера):
+Создайте файл `/etc/nginx/sites-available/scum-panel.conf`:
 
 ```nginx
 server {
@@ -221,56 +177,48 @@ server {
     }
 }
 ```
-*(Если установили PHP 8.3, укажите `unix:/run/php/php8.3-fpm.sock`).*
 
-Активируйте сайт и проверьте Nginx:
+Активируйте сайт и выпустите SSL-сертификат:
+
 ```bash
 sudo ln -s /etc/nginx/sites-available/scum-panel.conf /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
-sudo nginx -t
-sudo systemctl reload nginx
-```
+sudo nginx -t && sudo systemctl reload nginx
 
-#### Подключение бесплатного HTTPS (Certbot):
-```bash
+# Бесплатный HTTPS (Let's Encrypt)
 sudo apt install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d panel.yourdomain.com
 ```
 
 ---
 
-### Шаг 7. Настройка и запуск фоновых демонов (Supervisor)
+## ⚙️ Настройка фоновых демонов
 
-Для полноценной работы панели в фоне должны постоянно работать **3 процесса**:
+Для работы очередей RCON, логов, синхронизации `SCUM.db` и расписаний должны постоянно работать **3 службы**:
 
-1. **`scum-rcon`** (`artisan scum:rcon --poll=150`) — единственный владелец RCON-сокета; выполняет команды веб-консоли, чат-команды, выдачу наборов и тики плагинов.
-2. **`scum-watch`** (`artisan scum:watch --poll=500`) — мониторит игровые логи по FTP/SFTP, ставит события в очередь, синхронизирует `SCUM.db` и подогревает кэш карты.
-3. **`scum-scheduler`** (`artisan schedule:work`) — планировщик: каждую минуту запускает `scum:dispatch-tick` (расписания и плагины) и каждые 15 минут `scum:maintenance` (очистка старых задач и кэша).
+| Процесс | Команда | Назначение |
+| :--- | :--- | :--- |
+| **`scum-rcon`** | `php artisan scum:rcon --poll=150` | Единственный владелец RCON-сокета; выполняет команды консоли, чат-команды и тики плагинов. |
+| **`scum-watch`** | `php artisan scum:watch --poll=500` | Мониторинг логов по FTP/SFTP, очередь событий, синхронизация `SCUM.db` и кэш карты. |
+| **`scum-scheduler`** | `php artisan schedule:work` | Планировщик: `scum:dispatch-tick` (раз в минуту) и `scum:maintenance` (раз в 15 минут). |
 
-В папке `deploy/supervisor/` уже лежат готовые конфиги. Скопируйте их, обновите путь на `/var/www/scum-panel` и запустите:
+### Запуск через Supervisor (рекомендуется)
 
 ```bash
-# Копируем готовые конфиги Supervisor
 sudo cp /var/www/scum-panel/deploy/supervisor/*.conf /etc/supervisor/conf.d/
-
-# Заменяем дефолтный путь в конфигах на /var/www/scum-panel
 sudo sed -i 's|/var/www/scum-manager-laravel|/var/www/scum-panel|g' /etc/supervisor/conf.d/scum-*.conf
 
-# Перечитываем конфигурацию и запускаем все 3 демона
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start scum-rcon scum-watch scum-scheduler
-
-# Проверяем, что все 3 процесса в статусе RUNNING
 sudo supervisorctl status
 ```
 
 <details>
-<summary>Альтернатива: запуск через Systemd вместо Supervisor</summary>
+<summary>Альтернатива: запуск через Systemd</summary>
 
-Если вы предпочитаете чистый `systemd`, создайте 3 юнита в `/etc/systemd/system/`:
+Создайте три юнита в `/etc/systemd/system/` (`scum-rcon.service`, `scum-watch.service`, `scum-scheduler.service`):
 
-1. `/etc/systemd/system/scum-rcon.service`:
 ```ini
 [Unit]
 Description=SCUM Server Manager RCON Worker
@@ -288,51 +236,47 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 ```
+*(Для `scum-watch.service` укажите `scum:watch --poll=500`, для `scum-scheduler.service` — `schedule:work`).*
 
-2. `/etc/systemd/system/scum-watch.service` (аналогично, но `ExecStart=/usr/bin/php /var/www/scum-panel/artisan scum:watch --poll=500`).
-3. `/etc/systemd/system/scum-scheduler.service` (аналогично, но `ExecStart=/usr/bin/php /var/www/scum-panel/artisan schedule:work`).
-
-Запуск:
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now scum-rcon scum-watch scum-scheduler
 ```
+
 </details>
 
 ---
 
-### Шаг 8. Первое подключение игрового сервера SCUM
+## 🎮 Подключение игрового сервера
 
-1. Убедитесь, что на вашем игровом сервере SCUM установлен и настроен **[AMURKA-PVE-SCUM/scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon)**.
-2. Откройте панель в браузере (`https://panel.yourdomain.com`) и войдите под логином и паролем, заданными на Шаге 4.
-3. Нажмите **«Добавить сервер»**, заполните:
-   - **RCON:** IP, порт (обычно `7004`) и пароль из настроек `scum-rcon`.
-   - **FTP / SFTP:** хост, порт (`21` для FTP или `22` для SFTP), логин, пароль и путь к папке сохранения/логов SCUM.
-4. Нажмите **«Проверить RCON»** и **«Проверить FTP»**, сохраните сервер и нажмите **«Войти в панель управления»**.
+1. Убедитесь, что на игровом сервере SCUM установлен модуль [AMURKA-PVE-SCUM/scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon).
+2. Откройте панель в браузере и войдите под учётной записью администратора.
+3. Нажмите **«Добавить сервер»** и заполните данные **RCON** (IP, порт, пароль) и **FTP/SFTP** (хост, порт, логин, пароль, путь к папке сохранения/логов).
+4. Нажмите **«Проверить RCON»** и **«Проверить FTP»**, сохраните сервер и войдите в панель управления.
 
 ---
 
-## 🗄 Архитектура баз данных и Бэкапы
+## 🗄 Архитектура БД и резервное копирование
 
-```
+```text
 /var/www/scum-panel/
 ├── database/
-│   └── database.sqlite      <-- База панели (настройки, серверы, воркфлоу, аудит, очереди)
+│   └── database.sqlite      # Локальная база панели (настройки, серверы, сценарии, аудит, очереди)
 └── storage/
     └── app/scum/
-        └── SCUM.db          <-- Игровая база SCUM (автоматически скачивается демоном по FTP)
+        └── SCUM.db          # Игровая база SCUM (скачивается автоматически демоном scum-watch)
 ```
 
-- **`database/database.sqlite`** создаётся автоматически при `php artisan panel:install` и работает в режиме WAL.
-- **`storage/app/scum/SCUM.db`** создавать руками не нужно — демон `scum-watch` сам скачает её с игрового сервера.
-- **Автоматический бэкап:** используйте готовый скрипт [`deploy/backup.sh`](deploy/backup.sh), который безопасно делает снимок SQLite (`.backup`), пакует `.env` и `config/` в `/var/backups/scum-manager/` и хранит архивы 7 дней:
+- **Автоматический бэкап:** скрипт [`deploy/backup.sh`](deploy/backup.sh) делает консистентный снимок SQLite (`.backup`), архивирует `.env` и `config/` в `/var/backups/scum-manager/` и удаляет архивы старше 7 дней:
   ```bash
   sudo bash /var/www/scum-panel/deploy/backup.sh
   ```
 
 ---
 
-## 🔄 Обновление панели
+## 🔄 Обновление и диагностика
+
+### Обновление панели
 
 ```bash
 cd /var/www/scum-panel
@@ -343,34 +287,30 @@ sudo -u www-data php artisan optimize
 sudo supervisorctl restart scum-rcon scum-watch scum-scheduler
 ```
 
----
+### Частые проблемы (Troubleshooting)
 
-## ❓ Частые вопросы и диагностика (Troubleshooting)
-
-1. **Просмотр логов демонов в реальном времени:**
-   ```bash
-   tail -f /var/www/scum-panel/storage/logs/supervisor-*.log
-   tail -f /var/www/scum-panel/storage/logs/laravel.log
-   ```
-2. **Ошибка записи в SQLite или логи (`Permission denied`):**
-   ```bash
-   sudo chown -R www-data:www-data /var/www/scum-panel/storage /var/www/scum-panel/database /var/www/scum-panel/bootstrap/cache
-   sudo chmod -R 775 /var/www/scum-panel/storage /var/www/scum-panel/database /var/www/scum-panel/bootstrap/cache
-   ```
-3. **Сбросить пароль администратора или создать нового:**
-   ```bash
-   cd /var/www/scum-panel
-   sudo -u www-data php artisan panel:user
-   ```
-4. **Не проходит RCON-подключение:**
-   - Проверьте, что на игровом сервере установлен [AMURKA-PVE-SCUM/scum-rcon](https://github.com/AMURKA-PVE-SCUM/scum-rcon) и открыт RCON-порт в фаерволе:
-     ```bash
-     nc -zv <IP_ИГРОВОГО_СЕРВЕРА> 7004
-     ```
+- **Логи демонов и приложения:**
+  ```bash
+  tail -f /var/www/scum-panel/storage/logs/supervisor-*.log
+  tail -f /var/www/scum-panel/storage/logs/laravel.log
+  ```
+- **Ошибка `Permission denied` в `storage` или `database`:**
+  ```bash
+  sudo chown -R www-data:www-data /var/www/scum-panel/storage /var/www/scum-panel/database /var/www/scum-panel/bootstrap/cache
+  sudo chmod -R 775 /var/www/scum-panel/storage /var/www/scum-panel/database /var/www/scum-panel/bootstrap/cache
+  ```
+- **Сброс или создание пароля администратора:**
+  ```bash
+  cd /var/www/scum-panel && sudo -u www-data php artisan panel:user
+  ```
+- **Проверка доступности RCON-порта с сервера панели:**
+  ```bash
+  nc -zv <IP_ИГРОВОГО_СЕРВЕРА> 7004
+  ```
 
 ---
 
-## 🧪 Тестирование и контроль качества
+## 🧪 Тестирование и качество кода
 
 ```bash
 php artisan test
@@ -392,4 +332,4 @@ vendor/bin/pint --test
 
 ## 📄 Лицензия
 
-Проект распространяется под лицензией [MIT](LICENSE).
+Проект распространяется под открытой лицензией [MIT](LICENSE).
